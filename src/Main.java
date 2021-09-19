@@ -25,6 +25,18 @@ public class Main {
         lista1.add(2);
         System.out.println(lista1 + ", wielkość listy - " + lista1.size()); // [1, 5, 12, 3, 7, 9, 2]
 
+        /* iterowanie za pomocą forEach i for */
+        for (Integer x : lista1) {
+            System.out.print(x + ", ");
+        }
+        System.out.println();
+
+        for (int i = lista1.size() - 1; i >= 0; i--) {
+            System.out.print(lista1.get(i) * 13 + ", ");
+        }
+
+        System.out.println("\n");
+
         /* odczytanie wartości elementu */
         System.out.println("Pierwszy element: " + lista1.get(0) +
                 "\nDrugi element listy: " + lista1.get(1));
