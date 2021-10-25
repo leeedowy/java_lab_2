@@ -75,6 +75,7 @@ public class Main {
         System.out.println("imiona: " + imiona); // [Ania, Kasia, Wojtek, Zuza]
         System.out.println(imiona.size()); // 4
 
+
     }
 
 }
