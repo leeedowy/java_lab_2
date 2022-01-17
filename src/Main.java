@@ -6,76 +6,59 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /* Przyklad_6 Listy
-           operują na typach objektowych */
-        List<Integer> lista1 = new ArrayList<>();
-        List<BigInteger> lista2 = new ArrayList<>();
-        List<String> lista3 = new ArrayList<>();
-        List<BigDecimal> lista4 = new ArrayList<>();
-        List<Character> lista5 = new ArrayList<>(); // objektowy char
-        List<Object> lista6 = new ArrayList<>();
+        /* Przyklad_7* Mapy - Tylko dla chętnych */
 
-        /* przypisanie wartości */
-        lista1.add(1);
-        lista1.add(5);
-        lista1.add(12);
-        lista1.add(3);
-        lista1.add(7);
-        lista1.add(9);
-        lista1.add(2);
-        System.out.println(lista1 + ", wielkość listy - " + lista1.size()); // [1, 5, 12, 3, 7, 9, 2]
+        /* mapy są strukturami które przyjmują klucz i wartość */
+        Map<Integer, String> shapes = new HashMap<Integer, String>();
+        shapes.put(1, "Kwadrat"); // dodawanie pary klucz - wartość
+        shapes.put(2, "Koło");
+        shapes.put(4, "Trójkąt");
+        shapes.put(8, "Ośmiobok");
 
-        /* iterowanie za pomocą forEach i for */
-        for (Integer x : lista1) {
-            System.out.print(x + ", ");
-        }
+        System.out.println("Kształty: " + shapes);
+        System.out.println("Wyświetl wartość dla klucza nr2: " + shapes.get(2)); // get - pobranie wartości dla klucza
+
+        /* Podmienianie wartości dla danego klucza */
+        shapes.replace(2, "Trapez");
+        System.out.println("Wyświetl wartość dla klucza nr2: " + shapes.get(2) + "\n");
+        wyswietlMape(shapes);
+
+        /* usówanie wartości */
+        shapes.remove(4);
+        shapes.put(7, "Siedmiobok");
         System.out.println();
+        wyswietlMape(shapes);
 
-        for (int i = lista1.size() - 1; i >= 0; i--) {
-            System.out.print(lista1.get(i) * 13 + ", ");
-        }
-
-        System.out.println("\n");
-
-        /* odczytanie wartości elementu */
-        System.out.println("Pierwszy element: " + lista1.get(0) +
-                "\nDrugi element listy: " + lista1.get(1));
-
-        /* usówanie wartości, element o indeksie 2 został usunięty z listy */
-        lista1.remove(2);
-        System.out.println(lista1 + ", wielkość listy - " + lista1.size()); // [1, 5, 3, 7, 9, 2]
-
-        /* stworzenie listy z tablicy */
-        Integer[] tablica1 = new Integer[]{1, 5, 6, 8, 90, 3};
-        lista1 = Arrays.stream(tablica1).toList();
-        System.out.println(lista1); // [1, 5, 6, 8, 90, 3]
-
-        /* dynamiczna inicjalizacja listy */
-        lista1 = Arrays.asList(1, 4, 6, 9, 8, 3, 2);
-        System.out.println(lista1); // [1, 4, 6, 9, 8, 3, 2]
-
-        /* Sortowanie */
-        Collections.sort(lista1);
-        System.out.println(lista1); // [1, 2, 3, 4, 6, 8, 9]
-
-        /* Sortowanie od końca */
-        Collections.sort(lista1, Collections.reverseOrder());
-        System.out.println(lista1); // [9, 8, 6, 4, 3, 2, 1]
-
-
-        /* Przykład tworzenia Set-a */
-        Set<String> imiona = new TreeSet<>();
-        imiona.add("Kasia");
-        imiona.add("Ania");
-        imiona.add("Ania");
-        imiona.add("Wojtek");
-        imiona.add("Zuza");
-        imiona.add("Zuza");
-
-        System.out.println("imiona: " + imiona); // [Ania, Kasia, Wojtek, Zuza]
-        System.out.println(imiona.size()); // 4
-
-
+        /* kluczem i wartością mogą być dowolne typy Objektowe np. <Character, Integer>, <Object, Object>, <String, String>, <Long, Set<String>> */
+        Map<Character, Integer> numbers = new HashMap<Character, Integer>();
+        numbers.put('Z', 2); // dodawanie pary klucz - wartość
+        numbers.put('Y', 76);
+        numbers.put('C', 28);
+        numbers.put('A', 6);
+        System.out.println();
+        wyswietlMape(numbers);
+//        wyswietlMape2(numbers); // jeśli nie chcemy używać metody generycznej
     }
+
+    /* Map<?, ?> map - znaki zapytania informują nas że jest to metoda generyczna (taka która może przyjąć dowolne typy),
+     * można oczywiście wytypować tą metodę według potrzeby np. wyswietlMape(Map<Integer, String> map) */
+//    public static void wyswietlMape(Map<Integer, String> map) {  // jeśli nie chcemy używać metody generycznej
+    public static void wyswietlMape(Map<?, ?> map) {
+        for (Map.Entry<?, ?> entry : map.entrySet()) {
+            System.out.print("entry: " + entry + ", "); // klucz - wartość
+            System.out.print(" Key: " + entry.getKey() + ", "); // klucz
+            System.out.print(" Value: " + entry.getValue() + "; \n"); // wartość
+        }
+        System.out.print("\nTylko wartości: " + map.values() + ", "); // Wszystkie wartości
+    }
+
+//    public static void wyswietlMape2(Map<Character, Integer> map) {
+//        for (Map.Entry<?, ?> entry : map.entrySet()) {
+//            System.out.print("entry: " + entry + ", "); // klucz - wartość
+//            System.out.print(" Key: " + entry.getKey() + ", "); // klucz
+//            System.out.print(" Value: " + entry.getValue() + "; \n"); // wartość
+//        }
+//        System.out.print("\nTylko wartości: " + map.values() + ", "); // Wszystkie wartości
+//    }
 
 }
