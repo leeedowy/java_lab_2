@@ -17,7 +17,7 @@ public class Main {
 
         /* zad.2* Napisać program:
             a) Stworzyć mapę Map<Long, String>,
-            b) wstawić 5 par klucz-wartość z klawiatury (Wprowadzamy za pomocą dowolnej pętli),
+            b) wstawić 5 par klucz-wartość z klawiatury (Klucz wprowadzamy jako indeks za pomocą pętli for),
             c) wykonać dowolne operacje dodawania, usuwania, zamiany wartości,
             d) znaleść parę o wartości z najdłuższą długościa wyrazu (map.getValue().length - jak największy),
             e) przeiterować i wyświetlić wartości w pętli
