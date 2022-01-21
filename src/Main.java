@@ -10,6 +10,22 @@ public class Main {
         c) w trzeciej pętli return
         */
 
+        for (int i = 0; i < 5; i++) {
+            if (i == 3) {
+                break;
+            }
+        }
 
+        for (int i = 0; i < 5; i++) {
+            if (i == 1 || i == 3) {
+                continue;
+            }
+        }
+
+        for (int i = 0; i < 5; i++) {
+            if (i == 4) {
+                return;
+            }
+        }
     }
 }
